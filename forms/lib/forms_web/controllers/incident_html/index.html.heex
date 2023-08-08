@@ -1,0 +1,27 @@
+<.header>
+  Listing Incidents
+  <:actions>
+    <.link href={~p"/incidents/new"}>
+      <.button>New Incident</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="incidents" rows={@incidents} row_click={&JS.navigate(~p"/incidents/#{&1}")}>
+  <:col :let={incident} label="Name"><%= incident.name %></:col>
+  <:col :let={incident} label="Description"><%= incident.description %></:col>
+  <:col :let={incident} label="Isemployeeinvolved"><%= incident.isemployeeinvolved %></:col>
+  <:col :let={incident} label="Isvehicleinvolved"><%= incident.isvehicleinvolved %></:col>
+  <:col :let={incident} label="Location"><%= incident.location %></:col>
+  <:action :let={incident}>
+    <div class="sr-only">
+      <.link navigate={~p"/incidents/#{incident}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/incidents/#{incident}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={incident}>
+    <.link href={~p"/incidents/#{incident}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

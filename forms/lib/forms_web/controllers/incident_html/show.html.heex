@@ -1,0 +1,19 @@
+<.header>
+  Incident <%= @incident.id %>
+  <:subtitle>This is a incident record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/incidents/#{@incident}/edit"}>
+      <.button>Edit incident</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @incident.name %></:item>
+  <:item title="Description"><%= @incident.description %></:item>
+  <:item title="Isemployeeinvolved"><%= @incident.isemployeeinvolved %></:item>
+  <:item title="Isvehicleinvolved"><%= @incident.isvehicleinvolved %></:item>
+  <:item title="Location"><%= @incident.location %></:item>
+</.list>
+
+<.back navigate={~p"/incidents"}>Back to incidents</.back>
